@@ -11,7 +11,7 @@
 <meta property="og:title" content="Herbaciarnia V LO – Środa pachnie herbatą">
 <meta property="og:description" content="Nieformalne koło uczniów V LO w Warszawie. Każda środa to nowa herbata i wspólne parzenie.">
 <meta property="og:url" content="https://herbaciarniavlo.pl">
-<!-- TODO: dodaj og:image (np. 1200x630 px) i podmień ścieżkę poniżej
+<!-- TODO: dodaj og:image (1200x630 px):
 <meta property="og:image" content="https://herbaciarniavlo.pl/og.png"> -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%B5%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +21,9 @@
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1b17;--ink:#eef3e8;--soft:#a8bbb1;--leaf:#7fc5a2;--brew:#e8666d;--gold:#e8bd5f;--card:#172821;--line:#294036;--glow:rgba(255,255,255,.6)}}
 :root[data-theme="dark"]{--bg:#0f1b17;--ink:#eef3e8;--soft:#a8bbb1;--leaf:#7fc5a2;--brew:#e8666d;--gold:#e8bd5f;--card:#172821;--line:#294036;--glow:rgba(255,255,255,.6)}
-html{scroll-padding-top:70px;scroll-behavior:smooth}
+html{scroll-padding-top:90px;scroll-behavior:smooth}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif;position:relative}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--brew);outline-offset:3px}
@@ -30,9 +31,9 @@ a{color:inherit}
 h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.1;margin:0}
 .skip{position:absolute;left:-999px;top:8px;background:var(--leaf);color:var(--bg);padding:8px 14px;border-radius:8px;z-index:20}
 .skip:focus{left:8px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:16px;flex-wrap:wrap}
+nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;margin:0 -22px;padding:12px 22px;gap:8px 16px;flex-wrap:wrap;background:var(--bg);border-bottom:1px solid var(--line)}
 nav b{font-family:"Young Serif",Georgia,serif;font-weight:400;font-size:1.25rem}
-nav div{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+nav div{display:flex;gap:8px 16px;align-items:center;flex-wrap:wrap;position:relative}
 nav a{text-decoration:none;color:var(--soft);font-weight:500}
 nav a:hover,nav a[aria-current="true"]{color:var(--ink)}
 nav a[aria-current="true"]{text-decoration:underline;text-decoration-color:var(--brew);text-decoration-thickness:2px;text-underline-offset:6px}
@@ -41,8 +42,9 @@ nav a[aria-current="true"]{text-decoration:underline;text-decoration-color:var(-
 .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:36px 0 70px}
 .hero h1{font-size:clamp(2.6rem,7vw,4.8rem);letter-spacing:-.02em}
 .hero p{max-width:34ch;color:var(--soft);font-size:1.15rem;margin:22px 0 28px}
-.btn{display:inline-block;background:var(--leaf);color:var(--bg);padding:13px 24px;border-radius:999px;text-decoration:none;font-weight:700}
+.btn{display:inline-block;background:var(--leaf);color:var(--bg);padding:13px 24px;border-radius:999px;text-decoration:none;font-weight:700;border:0;font-family:inherit;font-size:1rem;cursor:pointer}
 .btn:hover{background:var(--ink)}
+.btn[disabled]{opacity:.5;cursor:wait}
 .cup{width:100%;max-width:340px;justify-self:center}
 .tea{animation:steep 5s ease-out both}
 @keyframes steep{from{fill:var(--card);opacity:.35}to{fill:var(--brew);opacity:1}}
@@ -53,7 +55,7 @@ section h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:12px}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
 .tabs button{font:inherit;font-weight:500;border:1.5px solid var(--leaf);background:transparent;color:var(--ink);padding:8px 18px;border-radius:999px;cursor:pointer}
 .list{list-style:none;margin:0;padding:0;max-width:640px}
-.list li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.list li{display:flex;justify-content:space-between;align-items:baseline;gap:6px 16px;padding:14px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
 .list span{display:block;color:var(--soft);font-size:.95rem}
 .list em{font-style:normal;font-weight:500;color:var(--brew);text-align:right;font-size:.95rem}
 .hint{color:var(--soft);font-size:.9rem;margin:14px 0 0;max-width:640px}
@@ -61,7 +63,7 @@ section h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:12px}
 .card{background:var(--card);border-radius:14px;padding:24px}
 .card h3{font-size:1.3rem;margin-bottom:8px}
 .card p{margin:0;color:var(--soft)}
-.next{font-weight:700;color:var(--ink)}
+.next{font-weight:700;color:var(--ink)!important}
 .statut{max-width:720px}
 details{border-bottom:1px solid var(--line);padding:14px 0}
 summary{cursor:pointer;font-family:"Young Serif",Georgia,serif;font-size:1.2rem}
@@ -71,27 +73,56 @@ details ol{padding-left:22px}
 footer{padding:36px 0 50px;border-top:1px solid var(--line);color:var(--soft);font-size:.95rem}
 #top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:44px;height:44px;border-radius:50%;border:1.5px solid var(--leaf);background:var(--card);color:var(--leaf);font-size:1.2rem;cursor:pointer;z-index:6;opacity:0;pointer-events:none;transition:opacity .2s}
 #top.on{opacity:1;pointer-events:auto}
-@media (max-width:760px){.hero{grid-template-columns:1fr;padding-bottom:40px}.cup{max-width:240px}}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding-bottom:40px}.cup{max-width:240px}
+html{scroll-padding-top:80px}
+nav b{display:none}
+nav div{flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;width:100%;padding:2px 0;scrollbar-width:none}
+nav div::-webkit-scrollbar{display:none}}
 @media (prefers-reduced-motion:reduce){.tea{animation:none}html{scroll-behavior:auto}}
 
 .btn{background:var(--brew);color:var(--bg)}
 .btn:hover{background:var(--leaf)}
 .tabs button[aria-selected="true"]{background:var(--brew);border-color:var(--brew);color:var(--bg)}
-nav{padding-top:48px}
+body>.wrap{padding-top:34px}
 nav b::before{content:"\2746";color:var(--brew);margin-right:.45em}
 .chip{display:block;width:fit-content;margin:0 0 24px;padding:6px 16px;border:1.5px dashed var(--gold);border-radius:999px;color:var(--brew);font-weight:700;font-size:.95rem}
-.chip[hidden]{display:none}
 .hero p.chip{max-width:none;margin:0 0 24px;font-size:.95rem;color:var(--brew)}
 section h2::after{content:"\2726";color:var(--gold);font-size:.5em;margin-left:.55em;vertical-align:.5em}
 .card{border-top:4px solid var(--brew);outline:1px dashed var(--line);outline-offset:-9px}
 .card:nth-child(even){border-top-color:var(--leaf)}
 summary::marker{color:var(--brew)}
 .greet{font-family:"Young Serif",Georgia,serif;font-size:1.3rem;color:var(--brew);margin:0 0 10px}
-.greet[hidden]{display:none}
 .sp{animation:twinkle 3s ease-in-out infinite alternate}
 .sp:nth-of-type(2){animation-delay:-1s}.sp:nth-of-type(3){animation-delay:-2s}
 
-/* dekoracje świąteczne – widoczne tylko w sezonie (klasa .xmas-on ustawiana w JS) */
+/* lista obecności */
+.book{background:var(--card);border-radius:14px;padding:26px;border-top:4px solid var(--brew);outline:1px dashed var(--line);outline-offset:-9px;max-width:720px}
+.book h3{font-size:1.4rem;margin-bottom:4px}
+.book .when{color:var(--brew);font-weight:700;margin:0 0 18px}
+.fld{display:block;margin-bottom:16px}
+.fld>.l{display:block;font-weight:500;color:var(--soft);font-size:.95rem;margin-bottom:6px}
+.fld input[type=text]{width:100%;font:inherit;background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:11px 14px}
+.fld input[type=text]:focus{border-color:var(--leaf)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg label{position:relative;flex:1 1 150px;margin:0}
+.seg input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.seg span{display:block;text-align:center;padding:11px 16px;border:1.5px solid var(--leaf);border-radius:999px;font-weight:500;pointer-events:none}
+.seg input:checked+span{background:var(--leaf);color:var(--bg);font-weight:700}
+.seg input:focus-visible+span{outline:3px solid var(--brew);outline-offset:3px}
+.msg{min-height:1.5em;margin:12px 0 0;font-size:.95rem;color:var(--soft)}
+.msg.err{color:var(--brew);font-weight:500}
+.sum{margin:26px 0 4px;font-weight:700}
+.ledger{width:100%;border-collapse:collapse}
+.ledger th{font-weight:500;font-size:.85rem;color:var(--soft);text-align:left;padding:8px 8px 8px 0;border-bottom:1.5px solid var(--leaf)}
+.ledger td{padding:11px 8px 11px 0;border-bottom:1px dashed var(--line);vertical-align:baseline}
+.ledger td:last-child,.ledger th:last-child{text-align:right;padding-right:0}
+.tag{display:inline-block;font-size:.85rem;font-weight:700;padding:2px 12px;border-radius:999px;white-space:nowrap}
+.tag.yes{background:var(--leaf);color:var(--bg)}
+.tag.no{border:1.5px solid var(--line);color:var(--soft);font-weight:500}
+.del{font:inherit;font-size:.88rem;background:none;border:0;color:var(--soft);text-decoration:underline;cursor:pointer;padding:0}
+.del:hover{color:var(--brew)}
+.empty{color:var(--soft);margin:18px 0 0}
+
 .holly{display:none}
 .xmas-on .holly{display:inline}
 .garland{display:none;position:absolute;top:0;left:0;right:0;height:46px;pointer-events:none;z-index:5;
@@ -114,7 +145,7 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
 <nav>
   <b>Herbaciarnia V LO</b>
   <div>
-    <a href="#o-nas">O grupie</a><a href="#godziny">Środy</a><a href="#dolacz">Dołącz</a><a href="#prezydium">Prezydium</a><a href="#statut">Statut</a><a href="#kontakt">Kontakt</a>
+    <a href="#o-nas">O grupie</a><a href="#godziny">Środy</a><a href="#lista">Lista</a><a href="#dolacz">Dołącz</a><a href="#prezydium">Prezydium</a><a href="#statut">Statut</a><a href="#kontakt">Kontakt</a>
     <button id="theme" type="button" aria-pressed="false" aria-label="Przełącz ciemny motyw">◐ Motyw</button>
   </div>
 </nav>
@@ -124,7 +155,7 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
     <h1>Środa pachnie herbatą</h1>
     <p>Grupa Herbaciana przy V LO im. Księcia Józefa Poniatowskiego w Warszawie. W każdą środę przynosimy swoją herbatę, parzymy i próbujemy razem.</p>
     <p class="chip" id="xmas" hidden></p>
-    <a class="btn" href="#dolacz">Dołącz do nas</a>
+    <a class="btn" href="#lista">Wpisz się na listę</a>
   </div>
   <svg class="cup" viewBox="0 0 300 280" role="img" aria-label="Filiżanka parującej herbaty">
     <path class="steam" d="M110 70c-14-18 14-30 0-48M150 70c-14-18 14-30 0-48M190 70c-14-18 14-30 0-48"/>
@@ -172,6 +203,40 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
   </div>
 </section>
 
+<section id="lista">
+  <h2>Lista obecności</h2>
+  <p class="lead">Wpisz się na najbliższą środę i zaznacz, czy masz ze sobą herbatę. Dzięki temu wiemy, ile naparów będzie na stole.</p>
+  <div class="book">
+    <h3>Zeszyt herbaciany</h3>
+    <p class="when" id="att-date"></p>
+    <form id="att-form" autocomplete="off" novalidate>
+      <label class="fld"><span class="l">Imię (i inicjał nazwiska)</span>
+        <input type="text" id="att-name" maxlength="40" placeholder="np. Ola K." required>
+      </label>
+      <div class="fld" role="radiogroup" aria-labelledby="att-tea-l">
+        <span class="l" id="att-tea-l">Herbata</span>
+        <div class="seg">
+          <label><input type="radio" name="tea" value="1"><span>Mam herbatę</span></label>
+          <label><input type="radio" name="tea" value="0"><span>Bez herbaty</span></label>
+        </div>
+      </div>
+      <label class="fld" id="att-kind-wrap" hidden><span class="l">Jaka? (nieobowiązkowo)</span>
+        <input type="text" id="att-kind" maxlength="40" placeholder="np. sencha, earl grey">
+      </label>
+      <button class="btn" type="submit" id="att-submit">Wpisz mnie</button>
+      <p class="msg" id="att-msg" role="status" aria-live="polite"></p>
+    </form>
+
+    <p class="sum" id="att-sum"></p>
+    <p class="empty" id="att-empty" hidden>Nikt jeszcze się nie wpisał. Możesz być pierwszy.</p>
+    <table class="ledger" id="att-table" hidden>
+      <thead><tr><th scope="col">Kto</th><th scope="col">Herbata</th><th scope="col">Jaka</th><th scope="col"><span style="position:absolute;left:-999px">Akcje</span></th></tr></thead>
+      <tbody id="att-body"></tbody>
+    </table>
+    <p class="hint" id="att-note"></p>
+  </div>
+</section>
+
 <section id="dolacz">
   <h2>Dołącz do nas</h2>
   <p class="lead">Członkiem może zostać każdy uczeń V LO, który chce dołączyć i akceptuje statut. Zgłoś się do opiekuna lub do zarządu grupy, wpiszemy Cię na listę członków.</p>
@@ -200,7 +265,7 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
     <details><summary>Rozdział I – Postanowienia ogólne</summary><p><b>§ 1</b></p><ol><li>Grupa Herbaciana, zwana dalej „Grupą”, działa przy V Liceum Ogólnokształcącym im. Księcia Józefa Poniatowskiego w Warszawie.</li><li>Grupa zrzesza uczniów zainteresowanych kulturą, historią i tradycją parzenia oraz degustacji herbaty.</li><li>Siedzibą Grupy jest V LO im. Księcia Józefa Poniatowskiego w Warszawie, a jej działalność ma charakter nieformalnego koła zainteresowań, działającego za zgodą i pod opieką Dyrekcji Szkoły oraz wyznaczonego opiekuna.</li><li>Grupa używa nazwy skróconej „Herbaciarnia V LO” oraz może posługiwać się własnym znakiem graficznym zatwierdzonym przez opiekuna.</li></ol><p><b>§ 2</b> Grupa działa zgodnie ze Statutem Szkoły, wewnętrznymi regulaminami V LO oraz obowiązującymi przepisami prawa oświatowego.</p></details>
     <details><summary>Rozdział II – Cele i zadania Grupy</summary><p><b>§ 3</b> Celem Grupy jest:</p><ol><li>Popularyzowanie kultury picia herbaty oraz wiedzy o jej rodzajach, pochodzeniu i sposobach parzenia.</li><li>Integracja społeczności uczniowskiej poprzez wspólne spotkania herbaciane.</li><li>Rozwijanie zainteresowań związanych z ceremoniami herbacianymi różnych kultur (m.in. chińskiej, japońskiej, brytyjskiej).</li><li>Organizowanie spotkań tematycznych, degustacji i prelekcji.</li><li>Kształtowanie nawyku wspólnego, spokojnego spędzania czasu wolnego jako alternatywy dla czasu spędzanego przy urządzeniach elektronicznych.</li></ol><p><b>§ 4</b> Grupa realizuje swoje cele poprzez:</p><ol><li>Cotygodniowe lub cykliczne spotkania herbaciane na terenie szkoły.</li><li>Organizację wydarzeń tematycznych (np. „Dzień Herbaty”, degustacje sezonowe).</li><li>Prowadzenie zbiorów herbat i akcesoriów należących do Grupy.</li><li>Współpracę z opiekunem, samorządem szkolnym oraz innymi kołami zainteresowań.</li></ol></details>
     <details><summary>Rozdział III – Członkostwo</summary><p><b>§ 5</b></p><ol><li>Członkiem Grupy może zostać każdy uczeń V LO im. Księcia Józefa Poniatowskiego, który wyrazi taką wolę i zaakceptuje niniejszy Statut.</li><li>Przyjęcie w poczet członków następuje po zgłoszeniu się do opiekuna lub zarządu Grupy oraz wpisaniu do listy członków.</li><li>Członkostwo ustaje w przypadku: dobrowolnej rezygnacji, ukończenia lub opuszczenia szkoły, skreślenia z listy członków uchwałą zarządu w przypadku rażącego naruszenia Statutu.</li></ol><p><b>§ 6</b> Członek Grupy ma prawo do:</p><ol><li>Uczestnictwa we wszystkich spotkaniach i wydarzeniach organizowanych przez Grupę.</li><li>Zgłaszania własnych propozycji tematów spotkań i degustacji.</li><li>Korzystania ze wspólnych zasobów Grupy (herbaty, akcesoria) zgodnie z zasadami ustalonymi przez zarząd.</li><li>Kandydowania do władz Grupy.</li></ol><p><b>§ 7</b> Członek Grupy ma obowiązek:</p><ol><li>Przestrzegania niniejszego Statutu oraz regulaminów szkolnych.</li><li>Dbania o wspólne mienie Grupy (zestawy do parzenia, naczynia, zapasy herbaty).</li><li>Aktywnego uczestnictwa w życiu Grupy oraz szanowania innych jej członków.</li><li>Utrzymywania porządku w miejscu spotkań.</li></ol></details>
-    <details><summary>Rozdział IV – Władze Grupy</summary><p><b>§ 8</b></p><ol><li>Władzami Grupy są: Opiekun Grupy (nauczyciel wyznaczony przez Dyrekcję Szkoły) oraz Zarząd Grupy, w składzie: Przewodniczący, Zastępca Przewodniczącego, Skarbnik oraz Zastępca Skarbnika.</li><li>Zarząd wybierany jest w drodze głosowania spośród członków Grupy na roczną kadencję.</li></ol><p><b>§ 9</b> Do zadań Opiekuna Grupy należy:</p><ol><li>Nadzór nad działalnością Grupy i zgodnością jej działań z regulaminem szkoły.</li><li>Reprezentowanie Grupy wobec Dyrekcji Szkoły.</li><li>Zatwierdzanie planu spotkań i wydarzeń.</li></ol><p><b>§ 10</b> Do zadań Zarządu Grupy należy:</p><ol><li>Bieżące organizowanie spotkań i wydarzeń.</li><li>Prowadzenie listy członków oraz ewidencji mienia Grupy.</li><li>Reprezentowanie Grupy wobec samorządu uczniowskiego i innych kół.</li><li>Rozstrzyganie spraw spornych między członkami.</li></ol></details>
+    <details><summary>Rozdział IV – Władze Grupy</summary><p><b>§ 8</b></p><ol><li>Władzami Grupy są: Opiekun Grupy (nauczyciel wyznaczony przez Dyrekcję Szkoły) oraz Zarząd Grupy, w składzie: Przewodniczący, Zastępca Przewodniczącego, Skarbnik.</li><li>Zarząd wybierany jest w drodze głosowania spośród członków Grupy na roczną kadencję.</li></ol><p><b>§ 9</b> Do zadań Opiekuna Grupy należy:</p><ol><li>Nadzór nad działalnością Grupy i zgodnością jej działań z regulaminem szkoły.</li><li>Reprezentowanie Grupy wobec Dyrekcji Szkoły.</li><li>Zatwierdzanie planu spotkań i wydarzeń.</li></ol><p><b>§ 10</b> Do zadań Zarządu Grupy należy:</p><ol><li>Bieżące organizowanie spotkań i wydarzeń.</li><li>Prowadzenie listy członków oraz ewidencji mienia Grupy.</li><li>Reprezentowanie Grupy wobec samorządu uczniowskiego i innych kół.</li><li>Rozstrzyganie spraw spornych między członkami.</li></ol></details>
     <details><summary>Rozdział V – Finansowanie i mienie Grupy</summary><p><b>§ 11</b></p><ol><li>Działalność Grupy może być finansowana z dobrowolnych składek członków, wsparcia Rady Rodziców lub środków przyznanych przez Dyrekcję Szkoły.</li><li>Mienie Grupy (zestawy herbaciane, naczynia, zapasy herbaty) stanowi wspólną własność Grupy i jest przechowywane w miejscu wskazanym przez opiekuna.</li><li>Sposób wydatkowania środków ustala Zarząd w porozumieniu z Opiekunem.</li></ol></details>
     <details><summary>Rozdział VI – Postanowienia końcowe</summary><p><b>§ 12</b></p><ol><li>Zmiany w Statucie mogą być wprowadzane większością głosów obecnych członków Grupy, za zgodą Opiekuna.</li><li>W sprawach nieuregulowanych niniejszym Statutem decyzje podejmuje Zarząd w porozumieniu z Opiekunem Grupy.</li><li>Statut wchodzi w życie z dniem jego zatwierdzenia przez Opiekuna i Dyrekcję V LO im. Księcia Józefa Poniatowskiego w Warszawie.</li></ol><p>Statut przyjęty przez członków założycieli Grupy Herbacianej V LO im. Księcia Józefa Poniatowskiego w Warszawie.</p></details>
   </div>
@@ -209,7 +274,7 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
 <section id="kontakt">
   <h2>Kontakt</h2>
   <p class="lead">V Liceum Ogólnokształcące im. Księcia Józefa Poniatowskiego, Warszawa<br>Zapytaj jednego z członków prezydium podczas przerw.</p>
-  <!-- TODO: dodaj kontakt cyfrowy, np. <p class="lead">Instagram: <a href="https://instagram.com/TWOJE_KONTO">@TWOJE_KONTO</a></p> -->
+  <!-- TODO: kontakt cyfrowy, np. <p class="lead">Instagram: <a href="https://instagram.com/TWOJE_KONTO">@TWOJE_KONTO</a></p> -->
 </section>
 </main>
 </div>
@@ -217,11 +282,12 @@ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wid
 <button id="top" type="button" aria-label="Wróć na górę">↑</button>
 
 <script>
-/* ---- Ustawienia do uzupełnienia ---- */
-var INFO={godzina:"",sala:""};          // np. {godzina:"14:30",sala:"sala 12"}
-var TOPICS={};                           // np. {"2026-12-02":"Herbaty z Tajwanu – oolongi"}
+/* ======== Ustawienia do uzupełnienia ======== */
+var INFO={godzina:"",sala:""};   // np. {godzina:"14:30",sala:"sala 12"}
+var TOPICS={};                    // np. {"2026-12-02":"Oolongi z Tajwanu"}
+var API="";                       // adres aplikacji Apps Script (…/exec) – wspólna lista; puste = zapis tylko w tej przeglądarce
 
-/* ---- Menu herbat: [nazwa, opis, jak parzyć] ---- */
+/* ======== Menu herbat: [nazwa, opis, jak parzyć] ======== */
 var M={
 czarne:[["Earl Grey","bergamotka, mocna i wyrazista","95°C · 3–4 min"],["Assam","słodowa, do mleka","95–100°C · 3–5 min"],["Chai z mlekiem","cynamon, kardamon, imbir","gotować chwilę w mleku · 5 min"]],
 zielone:[["Sencha","świeża, trawiasta","70–80°C · 1–2 min"],["Jaśminowa","kwiatowa i łagodna","75–80°C · 2–3 min"],["Matcha latte","na mleku lub napoju roślinnym","70–80°C · ubić miotełką"]],
@@ -229,48 +295,149 @@ owocowe:[["Malina z hibiskusem","kwaskowata, na ciepło lub zimno","95–100°C 
 ziolowe:[["Mięta","klasyk na dobry dzień","95–100°C · 5–7 min"],["Rumianek","na spokojniejsze nerwy","95–100°C · 5–7 min"],["Rooibos pomarańczowy","bez kofeiny","95–100°C · 5–7 min"]],
 slodkie:[["Ciasteczko owsiane","domowe",""],["Szarlotka","kawałek",""],["Miód do herbaty","porcja",""]]};
 
-var list=document.getElementById("list"),tabs=[].slice.call(document.querySelectorAll("[data-t]"));
+/* ======== Pomocnicze ======== */
+function $(id){return document.getElementById(id)}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
-function show(k,focus){
-  list.innerHTML=M[k].map(function(i){return "<li><div>"+esc(i[0])+"<span>"+esc(i[1])+"</span></div>"+(i[2]?"<em>"+esc(i[2])+"</em>":"")+"</li>"}).join("");
-  list.setAttribute("aria-labelledby","tab-"+k);
-  tabs.forEach(function(b){var on=b.dataset.t===k;b.setAttribute("aria-selected",on);b.tabIndex=on?0:-1;if(on&&focus)b.focus()})
-}
-tabs.forEach(function(b,i){
-  b.addEventListener("click",function(){show(b.dataset.t)});
-  b.addEventListener("keydown",function(e){
-    var n=null;
-    if(e.key==="ArrowRight")n=(i+1)%tabs.length;
-    else if(e.key==="ArrowLeft")n=(i-1+tabs.length)%tabs.length;
-    else if(e.key==="Home")n=0;
-    else if(e.key==="End")n=tabs.length-1;
-    if(n!==null){e.preventDefault();show(tabs[n].dataset.t,true)}
-  })
-});
-show("czarne");
+function iso(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+function plural(n,a,b,c){var l=n%10,h=n%100;if(n===1)return a;if(l>=2&&l<=4&&(h<10||h>=20))return b;return c}
+function rid(){var a=new Uint8Array(12);crypto.getRandomValues(a);return [].map.call(a,function(x){return("0"+x.toString(16)).slice(-2)}).join("")}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e}
+function meeting(){var n=new Date(),diff=(3-n.getDay()+7)%7;return{diff:diff,date:new Date(n.getFullYear(),n.getMonth(),n.getDate()+diff)}}
 
-/* ---- Najbliższa środa ---- */
+/* ======== Zakładki herbat ======== */
 (function(){
-  var n=new Date(),diff=(3-n.getDay()+7)%7,d=new Date(n.getFullYear(),n.getMonth(),n.getDate()+diff);
-  var label=d.toLocaleDateString("pl-PL",{weekday:"long",day:"numeric",month:"long"});
-  var el=document.getElementById("next");
-  el.textContent=(diff===0?"Dziś! ":"")+label.charAt(0).toUpperCase()+label.slice(1);
-  var key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
-  document.getElementById("topic").textContent=TOPICS[key]||"Przynieś swoją ulubioną herbatę.";
-  var extra=[INFO.godzina,INFO.sala].filter(Boolean).join(", ");
-  if(extra)document.getElementById("when").textContent="Każda środa, "+extra
+  var list=$("list"),tabs=[].slice.call(document.querySelectorAll("[data-t]"));
+  function show(k,focus){
+    list.innerHTML=M[k].map(function(i){return "<li><div>"+esc(i[0])+"<span>"+esc(i[1])+"</span></div>"+(i[2]?"<em>"+esc(i[2])+"</em>":"")+"</li>"}).join("");
+    list.setAttribute("aria-labelledby","tab-"+k);
+    tabs.forEach(function(b){var on=b.dataset.t===k;b.setAttribute("aria-selected",on);b.tabIndex=on?0:-1;if(on&&focus)b.focus()})
+  }
+  tabs.forEach(function(b,i){
+    b.addEventListener("click",function(){show(b.dataset.t)});
+    b.addEventListener("keydown",function(e){
+      var n=null;
+      if(e.key==="ArrowRight")n=(i+1)%tabs.length;
+      else if(e.key==="ArrowLeft")n=(i-1+tabs.length)%tabs.length;
+      else if(e.key==="Home")n=0;
+      else if(e.key==="End")n=tabs.length-1;
+      if(n!==null){e.preventDefault();show(tabs[n].dataset.t,true)}
+    })
+  });
+  show("czarne");
 })();
 
-/* ---- Sezon świąteczny: 20 listopada – 6 stycznia ---- */
+/* ======== Motyw jasny/ciemny ======== */
+(function(){
+  var r=document.documentElement,btn=$("theme");
+  function isDark(){var t=r.getAttribute("data-theme");return t?t==="dark":matchMedia("(prefers-color-scheme:dark)").matches}
+  function sync(){btn.setAttribute("aria-pressed",isDark())}
+  try{var s=localStorage.getItem("theme");if(s)r.setAttribute("data-theme",s)}catch(e){}
+  sync();
+  btn.addEventListener("click",function(){
+    var t=isDark()?"light":"dark";r.setAttribute("data-theme",t);
+    try{localStorage.setItem("theme",t)}catch(e){}
+    sync()
+  })
+})();
+
+/* ======== Najbliższa środa ======== */
+(function(){
+  var m=meeting(),label=cap(m.date.toLocaleDateString("pl-PL",{weekday:"long",day:"numeric",month:"long"}));
+  $("next").textContent=(m.diff===0?"Dziś! ":"")+label;
+  $("topic").textContent=TOPICS[iso(m.date)]||"Przynieś swoją ulubioną herbatę.";
+  var extra=[INFO.godzina,INFO.sala].filter(Boolean).join(", ");
+  if(extra)$("when").textContent="Każda środa, "+extra;
+})();
+
+/* ======== Lista obecności ======== */
+(function(){
+  var m=meeting(),date=iso(m.date);
+  var dateLabel=m.date.toLocaleDateString("pl-PL",{weekday:"long",day:"numeric",month:"long"});
+  $("att-date").textContent=(m.diff===0?"Dziś · ":"")+cap(dateLabel);
+
+  var owner;try{owner=localStorage.getItem("owner")}catch(e){}
+  if(!owner){owner=rid();try{localStorage.setItem("owner",owner)}catch(e){}}
+
+  /* magazyn lokalny (domyślnie) */
+  function read(d){try{return JSON.parse(localStorage.getItem("att:"+d)||"[]")}catch(e){return[]}}
+  function write(d,a){try{localStorage.setItem("att:"+d,JSON.stringify(a))}catch(e){}}
+  var local={
+    load:function(d){return Promise.resolve(read(d).map(function(e){return{id:e.id,name:e.name,tea:e.tea,kind:e.kind,mine:e.owner===owner}}))},
+    save:function(d,p){
+      var arr=read(d),k=p.name.toLowerCase(),f=arr.filter(function(e){return e.owner===owner&&e.name.toLowerCase()===k})[0];
+      if(f){f.tea=p.tea;f.kind=p.kind}else arr.push({id:rid(),name:p.name,tea:p.tea,kind:p.kind,owner:owner});
+      write(d,arr);return Promise.resolve()
+    },
+    remove:function(d,id){write(d,read(d).filter(function(e){return !(e.id===id&&e.owner===owner)}));return Promise.resolve()}
+  };
+
+  /* magazyn wspólny (Arkusz Google przez Apps Script) */
+  function post(b){
+    return fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(b)})
+      .then(function(r){return r.json()}).then(function(j){if(!j.ok)throw new Error(j.error||"error");return j})
+  }
+  var remote={
+    load:function(d){return fetch(API+"?date="+d+"&owner="+encodeURIComponent(owner)).then(function(r){return r.json()}).then(function(j){return j.entries||[]})},
+    save:function(d,p){return post({action:"save",date:d,owner:owner,name:p.name,tea:p.tea,kind:p.kind})},
+    remove:function(d,id){return post({action:"remove",date:d,owner:owner,id:id})}
+  };
+  var Store=API?remote:local;
+
+  $("att-note").textContent=API
+    ? "Lista jest wspólna: wpisane imiona widzą wszyscy odwiedzający stronę. Swój wpis możesz usunąć."
+    : "Wpisy zapisują się tylko w tej przeglądarce, więc inni ich nie zobaczą. Swój wpis możesz usunąć.";
+
+  var form=$("att-form"),nameEl=$("att-name"),kindEl=$("att-kind"),kindWrap=$("att-kind-wrap"),msgEl=$("att-msg"),btn=$("att-submit");
+  function msg(t,err){msgEl.textContent=t||"";msgEl.className="msg"+(err?" err":"")}
+  try{var sn=localStorage.getItem("att-name");if(sn)nameEl.value=sn}catch(e){}
+
+  [].forEach.call(form.elements.tea,function(r){r.addEventListener("change",function(){kindWrap.hidden=form.elements.tea.value!=="1"})});
+
+  function render(entries){
+    var tb=$("att-body");tb.textContent="";
+    var yes=entries.filter(function(e){return e.tea}).length,n=entries.length;
+    $("att-empty").hidden=n>0;$("att-table").hidden=n===0;
+    $("att-sum").textContent=n?(n+" "+plural(n,"osoba","osoby","osób")+" · "+yes+" z herbatą · "+(n-yes)+" bez"):"";
+    entries.forEach(function(e){
+      var tr=el("tr");
+      tr.appendChild(el("td","",e.name));
+      var t=el("td");t.appendChild(el("span","tag "+(e.tea?"yes":"no"),e.tea?"mam":"brak"));tr.appendChild(t);
+      tr.appendChild(el("td","",e.kind||"–"));
+      var a=el("td");
+      if(e.mine){var b=el("button","del","usuń");b.type="button";b.setAttribute("aria-label","Usuń wpis: "+e.name);
+        b.addEventListener("click",function(){Store.remove(date,e.id).then(refresh).catch(function(){msg("Nie udało się usunąć wpisu.",true)})});a.appendChild(b)}
+      tr.appendChild(a);tb.appendChild(tr)
+    })
+  }
+  function refresh(){return Store.load(date).then(render).catch(function(){msg("Nie mogę teraz wczytać listy. Spróbuj odświeżyć stronę.",true)})}
+
+  form.addEventListener("submit",function(ev){
+    ev.preventDefault();msg("");
+    var name=nameEl.value.trim().replace(/\s+/g," ").slice(0,40);
+    if(!name){msg("Wpisz swoje imię.",true);nameEl.focus();return}
+    var tea=form.elements.tea.value;
+    if(!tea){msg("Zaznacz, czy masz herbatę.",true);return}
+    var kind=tea==="1"?kindEl.value.trim().slice(0,40):"";
+    try{localStorage.setItem("att-name",name)}catch(e){}
+    btn.disabled=true;
+    Store.save(date,{name:name,tea:tea==="1",kind:kind})
+      .then(refresh).then(function(){msg("Zapisane, do zobaczenia w środę.");kindEl.value=""})
+      .catch(function(){msg("Nie udało się zapisać. Spróbuj jeszcze raz.",true)})
+      .then(function(){btn.disabled=false})
+  });
+  refresh();
+})();
+
+/* ======== Sezon świąteczny: 20 listopada – 6 stycznia ======== */
 (function(){
   var n=new Date(),m=n.getMonth(),dd=n.getDate(),y=n.getFullYear();
   var season=(m===10&&dd>=20)||m===11||(m===0&&dd<=6);
   if(!season)return;
   document.documentElement.classList.add("xmas-on");
-  document.getElementById("greet").hidden=false;
-  var e=document.getElementById("xmas"),
-  d=Math.round((new Date(y,11,24)-new Date(y,m,dd))/864e5),t="";
-  if(d>1&&d<=40){var l=d%10,v=(l>=2&&l<=4&&(d%100<10||d%100>=20))?"zostały":"zostało";t="Do Wigilii "+v+" "+d+" dni"}
+  $("greet").hidden=false;
+  var e=$("xmas"),d=Math.round((new Date(y,11,24)-new Date(y,m,dd))/864e5),t="";
+  if(d>1&&d<=40)t="Do Wigilii "+plural(d,"został","zostały","zostało")+" "+d+" "+plural(d,"dzień","dni","dni");
   else if(d===1)t="Jutro Wigilia";
   else if(d===0)t="Dziś Wigilia. Wesołych Świąt!";
   else if(d<0&&d>=-2)t="Wesołych Świąt!";
@@ -282,17 +449,17 @@ show("czarne");
     document.body.appendChild(s)}
 })();
 
-/* ---- Podświetlenie sekcji w menu + przycisk "do góry" ---- */
+/* ======== Podświetlenie sekcji w menu + przycisk "do góry" ======== */
 (function(){
-  var links=[].slice.call(document.querySelectorAll("nav a"));
-  var top=document.getElementById("top");
+  var links=[].slice.call(document.querySelectorAll("nav a")),top=$("top");
   top.addEventListener("click",function(){scrollTo({top:0})});
   addEventListener("scroll",function(){top.classList.toggle("on",scrollY>600)},{passive:true});
   if(!("IntersectionObserver" in window))return;
   var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(e.isIntersecting){links.forEach(function(a){a.setAttribute("aria-current",a.getAttribute("href")==="#"+e.target.id)})}
-    })
+    es.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){
+      var on=a.getAttribute("href")==="#"+e.target.id;a.setAttribute("aria-current",on);
+      if(on){var c=a.parentNode;if(c.scrollWidth>c.clientWidth)c.scrollTo({left:a.offsetLeft-c.clientWidth/2+a.offsetWidth/2})}
+    })})
   },{rootMargin:"-40% 0px -55% 0px"});
   links.forEach(function(a){var s=document.querySelector(a.getAttribute("href"));if(s)io.observe(s)});
 })();
